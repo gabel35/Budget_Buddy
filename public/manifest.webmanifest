@@ -1,21 +1,21 @@
 {
     "name": "Budget Buddy",
     "short_name": "Budget",
-    "start_url": ".",
-    "background_color": "#cadbda",
-    "theme_color": "#cadbda",
-    "display": "standalone",
     "icons": [
       {
-        "src": "icons/icon192x192.png",
+        "src": "icons/icon-192x192.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "icons/icon512x512.png",
+        "src": "icons/icon-512x512.png",
         "sizes": "512x512",
         "type": "image/png"
       }
-    ] 
+    ],
+    "theme_color": "#cadbda",
+    "start_url": "/",
+    "background_color": "#cadbda",
+    "display": "standalone" 
   }
   
