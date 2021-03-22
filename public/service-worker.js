@@ -10,13 +10,15 @@ const FILES_TO_CACHE = [
   const STATIC_CACHE = "static-cache-v1";
   const RUNTIME_CACHE = "runtime-cache";
   
-  self.addEventListener("install", event => {
+  self.addEventListener("install", function (event) {
     event.waitUntil(
-      caches
-        .open(STATIC_CACHE)
-        .then(cache => cache.addAll(FILES_TO_CACHE))
-        .then(() => self.skipWaiting())
+      caches.open(STATIC_CACHE).then((cache) => {
+        console.log("Your files were pre-cached successfully!");
+        return cache.addAll(FILES_TO_CACHE);
+      })
     );
+  
+    self.skipWaiting(); 
   });
   
   // The activate handler takes care of cleaning up old caches.
