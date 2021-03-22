@@ -1,3 +1,4 @@
+//google says error is coming from the files in here//
 const FILES_TO_CACHE = [
     '/',
     '/index.html',
