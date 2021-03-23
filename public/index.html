@@ -54,10 +54,31 @@
     })();
   </script>
   <script>
-    const request = window.indexedDB.open("transaction", 1);
-    request.onsuccess = event => {
-      console.log(request.result);
+    const request = indexedDB.open(`budget`, 1);
+    
+    request.onupgradeneeded = event => {
+      const db = request.result;
+      db.createObjectStore('pending', { autoIncrement:  true });
+      console.log(event);
     };
+
+    request.onsuccess = event => {
+      if(navigator.onLine) {
+          checkDatabase();
+      }
+    };
+
+    request.onerror = event => console.error(event);
+    
+    function saveRecord() {
+      const db = request.result;
+      const transaction = db.transaction['pending', 'readwrite'];
+      const budgetStore = transaction.objectStore('pending');
+      budgetStore.add(record);
+    };
+
+    window.addEventListener('online', checkDatabase);
+
   </script>
 </body>
 </html>
