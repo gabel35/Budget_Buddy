@@ -5,7 +5,8 @@ const FILES_TO_CACHE = [
     '/styles.css',
     '/dist/main.bundle.js',
     '/icons/icon-192x192.png',
-    '/icons/icon-512x512.png'
+    '/icons/icon-512x512.png',
+    '/assets/budget_buddy.PNG'
   ];
 
   const STATIC_CACHE = "static-cache-v1";
