@@ -54,6 +54,7 @@
     })();
   </script>
   <script>
+    let db;
     const request = indexedDB.open(`budget`, 1);
     
     request.onupgradeneeded = event => {
@@ -78,6 +79,7 @@
     };
 
     function checkDatabase() {
+      const db = request.result;
       const transaction = db.transaction(['pending'], 'readwrite');
       const budgetStore = transaction.objectStore('pending');
       const getAll = budgetStore.getAll();
